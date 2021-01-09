@@ -1,7 +1,7 @@
 {
   "name": "vscode-csv-markdown",
   "displayName": "vscode-csv-markdown",
-  "description": "",
+  "description": "Convert CSV text to Markdown table",
   "publisher": "takezoe",
   "repository": "https://github.com/takezoe/vscode-csv-markdown",
   "version": "0.0.1",
