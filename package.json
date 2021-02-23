@@ -6,7 +6,7 @@
   "repository": "https://github.com/takezoe/vscode-csv-markdown",
   "version": "0.0.2",
   "engines": {
-    "vscode": "^1.52.0"
+    "vscode": "^1.50.0"
   },
   "categories": [
     "Other"
@@ -15,7 +15,7 @@
     "csv",
     "markdown",
     "convert"
-  ],  
+  ],
   "activationEvents": [
     "onCommand:vscode-csv-markdown.convert-csv-to-markdown"
   ],
