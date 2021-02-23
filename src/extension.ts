@@ -17,15 +17,16 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('vscode-csv-markdown.convert-csv-to-markdown', () => {
 		const editor = vscode.window.activeTextEditor
 		if (editor == null) {
-			return;
+			return
 		}
 		const selection = editor.selection
 		const text = editor.document.getText(selection)
-		const csv = parse(text)
+		const csv  = parse(text)
+		const rows = csv.data as Array<Array<String>>
 
 		// Caluculate  column sizes
-		var width: number[] = [];
-		(csv.data as Array<Array<String>>).forEach((line, i) => {
+		let width: number[] = []
+		rows.forEach((line, i) => {
 			line.forEach((element, j) => {
 				const value = element.trim()
 				if (width.length <= j) {
@@ -37,16 +38,16 @@ export function activate(context: vscode.ExtensionContext) {
 		});
 
 		// Build table
-		var table = "";
-		(csv.data as Array<Array<String>>).forEach((line, i) => {
+		let table = "";
+		rows.forEach((line, i) => {
 			if (line.length == 1 && line[0].trim() == "") {
 				return;
 			}
 			line.forEach((element, j) => {
-				const value = element.trim();
-				table = table + "|" + value;
+				const value = element.trim()
+				table = table + "|" + value
 				if (value.length < width[j]) {
-					for (var k = 0; k < width[j] - value.length; k++) {
+					for (let k = 0; k < width[j] - value.length; k++) {
 						table = table + " "
 					}
 				}
@@ -55,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
 			if (i == 0) {
 				for (const w of width) {
 					table = table + "|"
-					for (var k = 0; k < w; k++) {
+					for (let k = 0; k < w; k++) {
 						table = table + "-"
 					}
 				}
