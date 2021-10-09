@@ -17,7 +17,8 @@
     "convert"
   ],
   "activationEvents": [
-    "onCommand:vscode-csv-markdown.convert-csv-to-markdown"
+    "onCommand:vscode-csv-markdown.convert-csv-to-markdown",
+    "onCommand:vscode-csv-markdown.convert-csv-to-jira"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -25,6 +26,10 @@
       {
         "command": "vscode-csv-markdown.convert-csv-to-markdown",
         "title": "Convert CSV to Markdown table"
+      },
+      {
+        "command": "vscode-csv-markdown.convert-csv-to-jira",
+        "title": "Convert CSV to JIRA table"
       }
     ]
   },
